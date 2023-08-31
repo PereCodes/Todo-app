@@ -1,0 +1,291 @@
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700&family=Josefin+Sans:wght@400;700&family=Kumbh+Sans:wght@400;700&family=Outfit:wght@300;400;600&family=Poppins:wght@100;200;300;400;500;600;700&family=Roboto:wght@100;300;400;500;700&display=swap');
+*,
+*::before,
+::after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html{
+    font-size: 62.5%;
+}
+/* light theme*/
+.theme-light {
+    --bg-top-image: 0 0 url(../images/bg-desktop-light.jpg) no-repeat;
+    --main-bg: hsl(0, 0%, 98%);
+    --todo-bg: hsl(0, 0%, 98%);
+    --todo-shadow: hsl(235, 19%, 35%);
+    --font-color: hsl(236, 9%, 61%);
+    --font-color-hover: hsl(235, 21%, 11%);
+}
+/* dark theme */
+.theme-dark {
+    --bg-top-image: 0 0 url(../images/bg-desktop-dark.jpg) no-repeat;
+    --main-bg: hsl(235, 21%, 11%);
+    --todo-bg: hsl(235, 24%, 19%);
+    --todo-shadow: hsl(235, 21%, 11%);
+    --font-color: hsl(234, 39%, 85%);
+    --font-color-hover: #fff;
+}
+body{
+    font-family: 'Josefin Sans', sans-serif;
+    background: var(--bg-top-image);
+    background-color: var(--main-bg);
+    color: var(--font-color);   
+}
+ul{
+    list-style-type: none;
+}
+a{
+    text-decoration: none;
+}
+.flex{
+    display: flex;
+    align-items: center;
+}
+.header, .main{
+    max-width: 54.5rem;
+    margin: 0 auto;
+}
+.header{
+    justify-content: space-between;
+    padding: 5.2rem 0 1.1rem;
+}
+.logo-box .logo{
+    color: #fff;
+    font-size: 4rem;
+    font-weight: 700;
+    letter-spacing: 1rem;
+}
+
+.theme-block #theme {
+    display: none;
+}
+
+.theme-block label::before{
+    content: '';
+    background: url(../images/icon-sun.svg);
+    display: block;
+    width: 2.6rem;
+    height: 2.6rem;
+    cursor: pointer;
+}
+.theme-block #theme:checked + label::before {
+    background: url(../images/icon-moon.svg);
+}
+
+.add-new-item {
+    background: var(--todo-bg);
+    height: 6.5rem;
+    border-radius: 5px;
+    margin: 0 0 2.4rem;
+    padding: 0 2.6rem;
+    position: relative;
+    margin-top: 3rem;
+}
+.add-new-item label {
+    display: block;
+    width: 100%;
+    margin: 4px 0 0 4.7rem;
+}
+.add-new-item #addItem {
+    color: var(--font-color);
+    background: transparent                 ;
+    border: 0;
+    outline: 0;
+    width: 100%;
+    font: 400 18px/1 'Josefin Sans', sans-serf;
+    letter-spacing: 2px;
+}
+
+.add-new-item span {
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 1px solid var(--font-color);
+    display: block;
+    border-radius: 50%;
+    position: absolute;
+    left: 5%;
+    top: 32%;
+    cursor: pointer;
+}
+.add-new-item span:hover {
+    background: center url(../images/icon-check.svg) no-repeat, linear-gradient(135deg, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+}
+.content {
+    background: var(--todo-bg);
+    border-radius: 5px;
+    box-shadow: 0 1rem 3rem -9px var(--todo-shadow);
+}
+.content ul li {
+    padding: 0 1rem 0 2.5rem;
+    min-height: 6.5rem;
+    border-bottom: 1px solid var(--font-color);
+    position: relative;
+}
+ul li input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    width: 0;
+    height: 0;
+}
+ul li label {
+    position: relative;
+    cursor: pointer;
+    padding: 2px 0 0 4.8rem;
+    font-size: 1.1rem;
+}
+.checkmark {
+    position: absolute;
+    top: -5%;
+    left: 0;
+    height: 2.5rem;
+    width: 2.5rem;
+}
+
+ul li.hidden {
+    display: none;
+}
+
+ul li input[type="checkbox"] ~ .checkmark {
+    border: 1px solid var(--font-color);
+    border-radius: 50%;
+}
+ul li input[type="checkbox"] ~ .checkmark:hover {
+    border: 0;
+    padding: 1px;
+    background: linear-gradient(135deg, #57ddff, #c058f3);
+}
+ul li input[type="checkbox"] ~ .checkmark:hover::before {
+    content: '';
+    width: 2.3rem;
+    height: 2.3rem;
+    border-radius: 50%;
+    background: var(--todo-bg);
+    display: block;
+}
+ul li input[type="checkbox"]:checked ~ .checkmark {
+    background: center url(../images/icon-check.svg) no-repeat, linear-gradient(135deg, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+}
+ul li label .text{
+    font-size: 1.8rem;
+    color: var(--font-color);
+}
+ul li input[type="checkbox"]:checked ~ .text {
+    text-decoration: line-through;
+}
+.remove {
+    background: url(../images/icon-cross.svg) no-repeat;
+    width: 1.8rem;
+    height: 1.8rem;
+    display: none;
+    cursor: pointer;
+    position: absolute;
+    right: 4%;
+    top: 37%;
+    border: 0;
+    outline: 0;
+}
+
+ul li:hover .remove {
+    display: block;
+}
+
+.items-left {
+    color: var(--Dark-Grayish-Blue);
+    margin-right: 5rem;
+}
+
+.bottom-items {
+    padding: 2rem 2rem 2rem 2.7rem;
+    font-size: 1.4rem;
+    letter-spacing: .5px;
+    border-radius: 5px;
+    background: var(--todo-bg);
+    box-shadow: 0 .5rem 2rem -9px var(--todo-shadow);
+    position: relative;
+}
+
+.filter {
+    margin-right: 4rem;
+}
+.filter input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+.filter label {
+    cursor: pointer;
+    padding: 0 1rem;
+}
+.filter label:hover {
+    color: var(--font-color-hover);
+}
+.filter input[type="radio"]:checked ~ span {
+    color: hsl(221, 62%, 52%);
+}
+.clear {
+    color: var(--font-color);
+    cursor: pointer;
+    font-weight: 400;
+    font-size: 1.4rem;
+}
+
+.clear:hover {
+    color: var(--font-color-hover);
+}
+
+.drag-info {
+    margin-top: 5rem;
+    text-align: center;
+}
+.drag-info-text{
+    font-size:1.4rem;
+    color: var(--Dark-Grayish-Blue);
+    font-weight: 400;
+}
+
+
+
+
+/* media query */
+@media only screen and (max-width: 768px) {
+    body {
+        padding: 0 23px;
+        background-size: auto 21rem;
+        background-position-x: 70%;
+    }
+
+    .bottom-items {
+        padding: 18px 20px 20px 21px;
+        font-size: 1.5rem;
+        letter-spacing: .3px;
+        justify-content: space-between;
+    }
+    .filter {
+        position: absolute;
+        bottom: -6.5rem;
+        left: 0;
+        right: 0;
+        background: var(--todo-bg);
+        justify-content: center;
+        margin: 0;
+        height: 5rem;
+        border-radius: 5px;
+        font-size: 1.2rem;
+        align-items: flex-start;
+        padding: 2rem 0 0;
+    }
+
+    .filter label {
+        padding: 0 2rem;;
+    }
+
+    .drag-info {
+        display: none;
+    }
+}
+/*********/

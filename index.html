@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <title>Frontend Mentor | Todo app</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="theme-light">
+    <header class="header flex">
+        <div class="logo-box">
+            <h1 class="logo">TODO</h1>
+        </div>
+        <div class="theme-block">
+            <input type="checkbox" name="theme" id="theme">
+            <label for="theme"></label>
+        </div>
+    </header>
+    <div class="main">
+        <div class="add-new-item flex">
+            <span class="" id="add-btn"></span>
+            <label for="addItem">
+              <input type="text" placeholder="Create a new todo..." name="addItem" id="addItem">
+            </label>
+         </div>
+         <div class="content">
+                <ul>
+                    <!-- <li class="flex drag-item">
+                      <label class="list-item">
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                        <span class="text"></span>
+                      </label>
+                     <button class="remove" type="button" name="remove"</button>
+                 </li> -->
+             </ul>
+         </div>
+         <div class="bottom-items flex">
+            <div class="items-left"><span>0</span> items left</div>
+            <div class="filter flex">
+              <label>
+                <input type="radio" name="filter" id="all" checked>
+                <span>All</span>
+              </label>
+
+              <label>
+                <input type="radio" name="filter" id="active">
+                <span>Active</span>
+              </label>
+
+              <label>
+                <input type="radio" name="filter" id="completed">
+                <span>Completed</span>
+              </label>
+            </div>
+
+            <label>
+               <span class="clear">Clear Completed</span>
+            </label>
+          </div>
+          <div class="drag-info">
+            <h3 class="drag-info-text">Drag and drop to reorder list</h3>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <!-- <script src="test.js"></script> -->
+</body>
+</html>
